@@ -15,14 +15,10 @@ from pytt.fetch import SSUFetcher
 
 class Command(NoArgsCommand):
     """This command runs full TT database update each update interval, basing
-    on settings.CURRENT_UPDATE_INTERVAL. It drops all the data, downloads it,
+    on cron file. It drops all the data, downloads it,
     parses and stores. Transactions are atomic, so all the DB update is going
     to executed in one step, so users can access the service even during update
     times
-
-    Should be executed depending on desired update times. Please make sure
-    that UPDATES section in configuration file corresponds with cron tasks
-    as otherwise older data can be cached!
     """
     _logger = logging.getLogger()
     _parser = TTXMLParser()
