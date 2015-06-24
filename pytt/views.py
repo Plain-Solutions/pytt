@@ -245,7 +245,7 @@ def get_timetable(request, deptag, groupname):
 @api_view(['GET'])
 @cache_page(settings.UPDATE_INTERVAL)
 def get_teacher_timetable(request, teacher_id):
-    """Search teacher by substring, return their id and matched names
+    """Get teacher timetable
     Parameteres:
         teacher_id: ssu_id to get timetable for
     Possible statuses:
