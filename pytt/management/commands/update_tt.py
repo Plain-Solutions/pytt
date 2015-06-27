@@ -58,8 +58,6 @@ class Command(NoArgsCommand):
         Department.objects.all().delete()
         self._logger.info('Database drop completed')
         call_command('reset_index')
-        self._logger.info('Update interval set to %d hours',
-                          settings.CURRENT_UPDATE_INTERVAL)
         for pddata in self._parser.parse_department_data(response['text']):
             department = Department(**pddata)
             department.save()
